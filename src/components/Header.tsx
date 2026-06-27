@@ -26,7 +26,7 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
+    function handleClickOutside(event: MouseEvent | TouchEvent) {
       if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
         setIsMobileMenuOpen(false);
       }
