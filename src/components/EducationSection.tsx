@@ -12,27 +12,45 @@ interface EducationSectionProps {
 export function EducationSection({ preview = true }: EducationSectionProps) {
   const education = [
     {
-      degree: "Master of Science in Computer Science",
-      institution: "Indian Institute of Technology",
-      period: "August 2019 - May 2021",
-      location: "New Delhi, India",
-      courses: ["Advanced Machine Learning", "Distributed Systems", "Algorithm Design", "Deep Learning"],
+      degree: "Bachelor of Technology in Computer Science and Engineering",
+      institution: "Uttarakhand Technical University",
+      period: "Sep 2022 - July 2026",
+      location: "Uttarakhand, India",
+      courses: [
+        "Data Structures", 
+        "Database Management", 
+        "Operating Systems", 
+        "Computer Networks", 
+        "Artificial Intelligence", 
+        "Object Oriented Programming"
+      ],
       details: [
-        "Specialized in Artificial Intelligence and Machine Learning.",
-        "Thesis on optimizing neural network architectures for resource-constrained edge devices.",
-        "Graduated top 10% of the class.",
+        "Pursuing comprehensive studies in software engineering, algorithms, and system architecture.",
+        "Gaining practical experience through rigorous academic projects and laboratory work.",
+        "Expected to graduate in 2026.",
       ],
     },
     {
-      degree: "Bachelor of Technology in Computer Engineering",
-      institution: "National Institute of Technology",
-      period: "August 2015 - May 2019",
-      location: "Kurukshetra, India",
-      courses: ["Data Structures", "Database Management", "Operating Systems", "Computer Networks"],
+      degree: "Class 12th (Intermediate)",
+      institution: "Uttarakhand Board of School Education",
+      period: "2022",
+      location: "Uttarakhand, India",
+      courses: ["Maths", "Physics", "Chemistry"],
       details: [
-        "Core computer science fundamentals, data structures, algorithms, and database management systems.",
-        "Developed a college-wide event management system as the capstone project.",
-        "Graduated with honors.",
+        "Passed with 1st Division with Honors, achieving 87% overall.",
+        "Scored an exceptional 98% in Mathematics.",
+        "Received the prestigious INSPIRE Award by the Government of India for academic excellence.",
+      ],
+    },
+    {
+      degree: "Class 10th (High School)",
+      institution: "Uttarakhand Board of School Education",
+      period: "2020",
+      location: "Uttarakhand, India",
+      courses: ["Maths", "Science"],
+      details: [
+        "Passed with 1st Division with Honors, scoring 88%.",
+        "Built a strong foundational knowledge in mathematics and core sciences.",
       ],
     }
   ];
