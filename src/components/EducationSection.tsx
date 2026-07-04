@@ -98,13 +98,15 @@ export function EducationSection({ preview = true }: EducationSectionProps) {
                 }}
               >
                 {/* Institution & Degree */}
-                <div>
-                  <h4 className="text-2xl md:text-3xl font-serif text-zinc-900 dark:text-white mb-1 group-hover:text-accent transition-colors inline-block">
-                    {edu.institution}
-                  </h4>
-                  <span className="inline-block align-middle ml-2 text-zinc-400 -mt-2">
-                    {expandedIndices.includes(index) ? <ChevronDown size={22} /> : <ChevronRight size={22} />}
-                  </span>
+                <div className="flex-1 pr-2">
+                  <div className="flex items-start gap-2 mb-1">
+                    <h4 className="text-2xl md:text-3xl font-serif text-zinc-900 dark:text-white group-hover:text-accent transition-colors">
+                      {edu.institution}
+                    </h4>
+                    <span className="shrink-0 text-zinc-400 mt-1 md:mt-2">
+                      {expandedIndices.includes(index) ? <ChevronDown size={22} /> : <ChevronRight size={22} />}
+                    </span>
+                  </div>
                   <p className="text-zinc-600 dark:text-zinc-400 text-lg">{edu.degree}</p>
                 </div>
 

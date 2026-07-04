@@ -109,11 +109,11 @@ export function ProjectsSection({ preview = true }: ProjectsSectionProps) {
               onClick={() => setExpandedIndices(prev => prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index])}
             >
               <div className="flex-1">
-                <div className="mb-1">
-                  <h4 className="inline text-xl font-bold text-zinc-900 dark:text-white group-hover:text-accent transition-colors">
+                <div className="flex items-start gap-2 mb-1">
+                  <h4 className="text-xl font-bold text-zinc-900 dark:text-white group-hover:text-accent transition-colors">
                     {project.title}
                   </h4>
-                  <span className="inline-block align-middle ml-2 text-zinc-400 -mt-1">
+                  <span className="shrink-0 text-zinc-400 mt-1">
                     {expandedIndices.includes(index) ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
                   </span>
                 </div>
