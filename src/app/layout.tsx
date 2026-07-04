@@ -42,7 +42,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
           <SplashScreen>
             <Header />
-            <main className="w-full max-w-5xl mx-auto px-6 sm:px-8 lg:px-16 py-4 sm:py-6 lg:py-6">
+            <main className="flex-1 flex flex-col w-full max-w-5xl mx-auto px-6 sm:px-8 lg:px-16 py-4 sm:py-6 lg:py-6">
               {children}
             </main>
             <Footer />

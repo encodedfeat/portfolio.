@@ -8,8 +8,9 @@ export function HeroTop() {
     <motion.div
       id="home"
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5 }}
       className="scroll-mt-20"
     >
       <div className="flex items-center gap-2 mb-6">
@@ -43,8 +44,9 @@ export function HeroBottom() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.3 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5 }}
       className="mt-0 md:mt-8"
     >
       <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed max-w-3xl mb-12 text-justify">

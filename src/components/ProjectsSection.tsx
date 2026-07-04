@@ -73,8 +73,9 @@ export function ProjectsSection({ preview = true }: ProjectsSectionProps) {
     <motion.section
       id="projects"
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.5 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5 }}
       className="mb-16 scroll-mt-20"
     >
       <div className="flex items-center gap-3 mb-8">
@@ -125,7 +126,7 @@ export function ProjectsSection({ preview = true }: ProjectsSectionProps) {
             </div>
 
             {/* Expanded Content */}
-            <AnimatePresence>
+            <AnimatePresence initial={false}>
               {expandedIndices.includes(index) && (
                 <motion.div
                   initial={{ height: 0, opacity: 0 }}

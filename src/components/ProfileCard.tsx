@@ -10,8 +10,9 @@ import { motion } from "framer-motion";
 export function ProfileCard() {
   return (
     <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5 }}
       className="bg-card-bg rounded-[32px] p-6 flex flex-col items-center max-w-sm w-full h-full border border-black/5 dark:border-white/5"
     >

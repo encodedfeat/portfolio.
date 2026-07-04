@@ -47,8 +47,8 @@ export function EducationSection({ preview = true }: EducationSectionProps) {
       id="education"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5, delay: 0.7 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5 }}
       className="mb-16 scroll-mt-20"
     >
       <div className="flex items-center gap-3 mb-10">
@@ -98,7 +98,7 @@ export function EducationSection({ preview = true }: EducationSectionProps) {
               </div>
 
               {/* Content */}
-              <AnimatePresence>
+              <AnimatePresence initial={false}>
                 {expandedIndices.includes(index) && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
