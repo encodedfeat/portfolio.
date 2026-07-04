@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Sun, Moon, Menu, X } from "lucide-react";
-import { useTheme } from "next-themes";
+import { Menu, X } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function Header() {
   const navLinks = [
@@ -15,7 +15,6 @@ export function Header() {
     { name: "Education", href: "/education", id: "education" },
   ];
 
-  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
@@ -68,14 +67,14 @@ export function Header() {
 
         {/* Mobile Branding (Visible only on mobile) */}
         <div className="md:hidden font-bold text-lg text-zinc-900 dark:text-white">
-          Mohit🌼
+          Mohit
         </div>
 
         {/* Right Side Controls */}
         <div className="flex items-center gap-2 sm:gap-4">
           <Link
             href="/resume"
-            className={`hidden md:block text-sm font-medium transition-colors mr-2 ${
+            className={`hidden md:block text-sm font-medium transition-colors ${
               pathname === "/resume"
                 ? "text-accent"
                 : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
@@ -85,18 +84,12 @@ export function Header() {
           </Link>
 
           {/* Theme Toggle */}
-          <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="p-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            aria-label="Toggle theme"
-          >
-            {mounted && theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
+          <ThemeToggle />
 
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            className="md:hidden p-2 -mr-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
             aria-label="Toggle mobile menu"
           >
             {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
