@@ -63,7 +63,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="relative flex items-center w-12 h-6 rounded-full bg-zinc-200 dark:bg-zinc-800 p-1 cursor-pointer transition-colors focus:outline-none focus:ring-2 focus:ring-accent"
+      className="relative flex items-center w-12 h-6 rounded-full bg-zinc-200 dark:bg-zinc-800 p-1 cursor-pointer transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       aria-label="Toggle theme"
     >
       <motion.div
