@@ -83,13 +83,13 @@ export function Footer() {
 
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-zinc-500 pt-6 sm:pt-8 border-t border-black/5 dark:border-white/5">
             <p>© {currentYear} Mohit. All rights reserved.</p>
-            <p>Built with Next.js & Tailwind</p>
+            <p>Made with ❤️, lots of ☕, and Next.js.</p>
           </div>
         </div>
       </footer>
 
       {/* Seamlessly blended blurry overlay */}
-      <div 
+      <div
         className="fixed bottom-0 left-0 right-0 z-50 h-24 pointer-events-none backdrop-blur-md"
         style={{
           WebkitMaskImage: 'linear-gradient(to top, black 30%, transparent)',
