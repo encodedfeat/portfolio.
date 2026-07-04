@@ -56,15 +56,19 @@ export function EducationSection({ preview = true }: EducationSectionProps) {
         <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">Education</h3>
       </div>
 
-      <div className="relative ml-2">
+      <div className={preview ? "" : "relative ml-2"}>
         {/* Main Vertical Line */}
-        <div className="absolute left-[7.5px] top-4 bottom-0 w-[2px] bg-zinc-200 dark:bg-zinc-800" />
+        {!preview && (
+          <div className="absolute left-[7.5px] top-4 bottom-0 w-[2px] bg-zinc-200 dark:bg-zinc-800" />
+        )}
         
-        <div className="flex flex-col gap-14">
+        <div className={preview ? "flex flex-col" : "flex flex-col gap-14"}>
           {displayEducation.map((edu, index) => (
-            <div key={index} className="relative pl-10 md:pl-12">
+            <div key={index} className={preview ? "flex flex-col border-b border-black/5 dark:border-white/5 last:border-0 py-6 first:pt-0" : "relative pl-10 md:pl-12"}>
               {/* Timeline Node (Circle) */}
-              <div className="absolute left-0 top-3 w-4 h-4 rounded-full border-[3px] border-zinc-900 dark:border-white bg-background ring-4 ring-background z-10" />
+              {!preview && (
+                <div className="absolute left-0 top-3 w-4 h-4 rounded-full border-[3px] border-zinc-900 dark:border-white bg-background ring-4 ring-background z-10" />
+              )}
 
               {/* Header & Meta Container */}
               <div 

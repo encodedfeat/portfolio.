@@ -68,17 +68,17 @@ export function ProfileCard() {
       </div>
 
       {/* Action Buttons */}
-      <div className="flex gap-3 w-full">
+      <div className="flex flex-wrap gap-3 w-full">
         <Link
           href="/resume"
-          className="flex-1 flex items-center justify-center gap-2 bg-black/5 dark:bg-white/5 hover:bg-zinc-900 dark:hover:bg-white hover:text-white dark:hover:text-black text-zinc-900 dark:text-white rounded-xl py-3 px-4 font-medium transition-colors border border-black/5 dark:border-white/5 hover:border-zinc-900 dark:hover:border-white"
+          className="flex-1 min-w-[130px] flex items-center justify-center gap-2 bg-black/5 dark:bg-white/5 hover:bg-zinc-900 dark:hover:bg-white hover:text-white dark:hover:text-black text-zinc-900 dark:text-white rounded-xl py-3 px-4 font-medium transition-colors border border-black/5 dark:border-white/5 hover:border-zinc-900 dark:hover:border-white"
         >
           <Download size={18} />
           <span className="text-sm">Download CV</span>
         </Link>
         <a
           href="#"
-          className="flex-1 flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-black rounded-xl py-3 px-4 font-medium transition-colors"
+          className="flex-1 min-w-[130px] flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-black rounded-xl py-3 px-4 font-medium transition-colors"
         >
           <Send size={18} />
           <span className="text-sm">Contact Me</span>

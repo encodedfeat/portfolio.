@@ -17,7 +17,7 @@ export function HeroTop() {
         <span className="text-zinc-600 dark:text-zinc-400 font-medium">Hello</span>
       </div>
 
-      <h1 className="text-4xl sm:text-5xl font-bold text-zinc-900 dark:text-white mb-2 leading-tight">
+      <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold text-zinc-900 dark:text-white mb-2 leading-tight">
         I'm Mohit, <br />
         <span className="text-accent">
           <Typewriter
@@ -32,7 +32,7 @@ export function HeroTop() {
         </span>
       </h1>
 
-      <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white mb-0 leading-tight">
+      <h2 className="text-3xl md:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white mb-0 leading-tight">
         Based in Uttarakhand,<br className="sm:hidden" /> India.
       </h2>
     </motion.div>
@@ -45,7 +45,7 @@ export function HeroBottom() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.3 }}
-      className="mt-0 lg:mt-8"
+      className="mt-0 md:mt-8"
     >
       <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed max-w-3xl mb-12 text-justify">
         I specialize in creating robust backend systems, building scalable web applications with Django,
