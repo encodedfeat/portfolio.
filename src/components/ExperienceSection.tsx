@@ -52,21 +52,25 @@ export function ExperienceSection({ preview = true }: ExperienceSectionProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5 }}
-      className="mb-16 scroll-mt-20"
+      className="scroll-mt-20 px-4 sm:px-12"
     >
-      <div className="flex items-center gap-3 mb-8">
-        <Briefcase className="text-zinc-400" size={24} />
-        <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">Experience</h3>
-      </div>
+      {preview && (
+        <div className="flex items-center gap-3 mb-6 px-4 sm:px-6 pt-4">
+          <Briefcase className="text-zinc-400" size={24} />
+          <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">Experience</h3>
+        </div>
+      )}
 
       <div className="flex flex-col">
         {displayExperiences.map((exp, index) => (
-          <div key={index} className="flex flex-col border-b border-black/5 dark:border-white/5 last:border-0 py-6 first:pt-0">
-            {/* Header (Clickable) */}
-            <div
-              className="flex flex-col sm:flex-row sm:items-start justify-between cursor-pointer group"
+          <div key={index} className="flex flex-col">
+            <div className="px-4 sm:px-6 py-6 group cursor-pointer"
               onClick={() => setExpandedIndices(prev => prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index])}
             >
+              {/* Header (Clickable) */}
+              <div
+                className="flex flex-col sm:flex-row sm:items-start justify-between"
+              >
               <div className="flex-1">
                 <div className="flex items-start gap-2 mb-1">
                   <div className="flex flex-wrap items-center gap-2">
@@ -134,6 +138,12 @@ export function ExperienceSection({ preview = true }: ExperienceSectionProps) {
                 </motion.div>
               )}
             </AnimatePresence>
+            </div>
+            
+            {/* Single Horizontal Grid Line (Internal) */}
+            {index !== displayExperiences.length - 1 && (
+              <div className="w-full h-[1px] bg-black/20 dark:bg-white/30"></div>
+            )}
           </div>
         ))}
       </div>

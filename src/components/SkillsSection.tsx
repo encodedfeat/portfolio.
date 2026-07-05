@@ -91,22 +91,26 @@ export function SkillsSection({ preview = true }: SkillsSectionProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5 }}
-      className="mb-16 scroll-mt-20"
+      className="scroll-mt-20 px-4 sm:px-12"
     >
-      <div className="flex items-center gap-3 mb-10">
-        <Cpu className="text-zinc-400" size={24} />
-        <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">Technical Skills</h3>
-      </div>
+      {preview && (
+        <div className="flex items-center gap-3 mb-6 px-4 sm:px-6 pt-4">
+          <Cpu className="text-zinc-400" size={24} />
+          <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">Technical Skills</h3>
+        </div>
+      )}
 
       {preview ? (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="flex flex-col gap-0">
             {displayAccordionSkills.map((category, index) => (
-              <div key={index} className="flex flex-col h-full border-b border-black/5 dark:border-white/5 pb-6">
+              <div key={index} className="flex flex-col">
+                <div className="px-4 sm:px-6 py-6 group cursor-pointer"
+                  onClick={() => setExpandedIndices(prev => prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index])}
+                >
                 {/* Header (Clickable) */}
                 <div
-                  className="flex flex-col sm:flex-row sm:items-start justify-between cursor-pointer group"
-                  onClick={() => setExpandedIndices(prev => prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index])}
+                  className="flex flex-col sm:flex-row sm:items-start justify-between"
                 >
                   <div className="flex-1">
                     <div className="flex items-start gap-2 mb-1">
@@ -146,6 +150,12 @@ export function SkillsSection({ preview = true }: SkillsSectionProps) {
                     </motion.div>
                   )}
                 </AnimatePresence>
+                </div>
+                
+                {/* Single Horizontal Grid Line (Internal) */}
+                {index !== displayAccordionSkills.length - 1 && (
+                  <div className="w-full h-[1px] bg-black/20 dark:bg-white/30"></div>
+                )}
               </div>
             ))}
           </div>

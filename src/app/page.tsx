@@ -25,25 +25,54 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full flex flex-col gap-12 pb-16">
-        <ExperienceSection preview={true} />
-        <ProjectsSection preview={true} />
-        <SkillsSection preview={true} />
-        <EducationSection preview={true} />
+      <div className="w-full relative max-w-5xl mx-auto">
+        {/* Continuous vertical lines (Grid Architecture) - Left Double Line */}
+        <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-black/20 dark:bg-white/30 z-0"></div>
+        <div className="absolute top-0 bottom-0 left-[3px] w-[1px] bg-black/20 dark:bg-white/30 z-0"></div>
         
-        {/* Kaizen Philosophy - Page End Vibe */}
-        <div className="mt-8 flex justify-center px-4">
-          <div className="flex flex-col items-center justify-center gap-3 px-6 sm:px-10 py-5 sm:py-6 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800/80 rounded-2xl shadow-sm opacity-90 hover:opacity-100 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300 text-center">
-            <p className="text-[8px] sm:text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wider sm:tracking-widest font-medium mb-1 whitespace-nowrap">
-              End of the scroll <span className="mx-1 sm:mx-2 text-zinc-300 dark:text-zinc-700">•</span> A thought to take with you
-            </p>
-            <div className="flex flex-row items-center justify-center gap-2 sm:gap-4">
-              <span className="text-[10px] sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] font-bold text-zinc-800 dark:text-zinc-200 shrink-0">Kaizen</span>
-              <span className="text-zinc-300 dark:text-zinc-700 shrink-0">|</span>
-              <span className="text-[9px] sm:text-xs italic text-zinc-500 dark:text-zinc-400 font-medium text-left">
-                A Japanese philosophy that translates to "Continuous improvement"
-              </span>
-            </div>
+        {/* Continuous vertical lines (Grid Architecture) - Right Double Line */}
+        <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-black/20 dark:bg-white/30 z-0"></div>
+        <div className="absolute top-0 bottom-0 right-[3px] w-[1px] bg-black/20 dark:bg-white/30 z-0"></div>
+
+        <div className="relative z-10 w-full flex flex-col pt-8">
+          <ExperienceSection preview={true} />
+          
+          {/* Double Horizontal Line Separator */}
+          <div className="relative w-full h-[4px] my-2 sm:my-4">
+            <div className="absolute top-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
+            <div className="absolute bottom-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
+          </div>
+
+          <ProjectsSection preview={true} />
+          
+          <div className="relative w-full h-[4px] my-2 sm:my-4">
+            <div className="absolute top-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
+            <div className="absolute bottom-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
+          </div>
+
+          <SkillsSection preview={true} />
+
+          <div className="relative w-full h-[4px] my-2 sm:my-4">
+            <div className="absolute top-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
+            <div className="absolute bottom-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
+          </div>
+
+          <EducationSection preview={true} />
+        </div>
+      </div>
+        
+      {/* Kaizen Philosophy - Page End Vibe */}
+      <div className="w-full max-w-5xl mx-auto mt-16 pb-16 flex justify-center px-4 relative z-10">
+        <div className="flex flex-col items-center justify-center gap-3 px-6 sm:px-10 py-5 sm:py-6 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800/80 rounded-2xl shadow-sm opacity-90 hover:opacity-100 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300 text-center">
+          <p className="text-[8px] sm:text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wider sm:tracking-widest font-medium mb-1 whitespace-nowrap">
+            End of the scroll <span className="mx-1 sm:mx-2 text-zinc-300 dark:text-zinc-700">•</span> A thought to take with you
+          </p>
+          <div className="flex flex-row items-center justify-center gap-2 sm:gap-4">
+            <span className="text-[10px] sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] font-bold text-zinc-800 dark:text-zinc-200 shrink-0">Kaizen</span>
+            <span className="text-zinc-300 dark:text-zinc-700 shrink-0">|</span>
+            <span className="text-[9px] sm:text-xs italic text-zinc-500 dark:text-zinc-400 font-medium text-left">
+              A Japanese philosophy that translates to "Continuous improvement"
+            </span>
           </div>
         </div>
       </div>

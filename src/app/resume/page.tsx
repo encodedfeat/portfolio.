@@ -6,32 +6,54 @@ import { FileText } from "lucide-react";
 export default function ResumePage() {
   return (
     <div className="pt-4 pb-16">
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="mb-16 scroll-mt-20"
-      >
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-          <div className="flex items-center gap-3">
-            <FileText className="text-zinc-400" size={24} />
-            <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">Resume</h3>
+      <div className="w-full relative max-w-5xl mx-auto">
+        {/* Continuous vertical lines (Grid Architecture) - Left Double Line */}
+        <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-black/20 dark:bg-white/30 z-0"></div>
+        <div className="absolute top-0 bottom-0 left-[3px] w-[1px] bg-black/20 dark:bg-white/30 z-0"></div>
+        
+        {/* Continuous vertical lines (Grid Architecture) - Right Double Line */}
+        <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-black/20 dark:bg-white/30 z-0"></div>
+        <div className="absolute top-0 bottom-0 right-[3px] w-[1px] bg-black/20 dark:bg-white/30 z-0"></div>
+
+        <div className="relative z-10 w-full flex flex-col pt-8">
+          {/* Page Title Block */}
+          <div className="relative w-full h-[4px] mb-6">
+            <div className="absolute top-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
+            <div className="absolute bottom-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
           </div>
           
-          <a
-            href="https://drive.google.com/file/d/1Wx6mfgym7owMoVk741zvzplq5bZ_NwTxQF9E6nqmY58/view"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-black/5 dark:bg-white/5 hover:bg-zinc-900 dark:hover:bg-white hover:text-white dark:hover:text-black text-zinc-900 dark:text-white rounded-xl py-2.5 px-5 font-medium transition-colors border border-black/5 dark:border-white/5 hover:border-zinc-900 dark:hover:border-white whitespace-nowrap"
+          <h1 className="text-center text-3xl md:text-4xl font-bold lowercase tracking-widest text-zinc-900 dark:text-white pb-6 pt-2">
+            resume
+          </h1>
+
+          <div className="flex justify-center mb-6">
+            <a
+              href="https://drive.google.com/file/d/1Wx6mfgym7owMoVk741zvzplq5bZ_NwTxQF9E6nqmY58/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-black/5 dark:bg-white/5 hover:bg-zinc-900 dark:hover:bg-white hover:text-white dark:hover:text-black text-zinc-900 dark:text-white rounded-xl py-2.5 px-5 font-medium transition-colors border border-black/5 dark:border-white/5 hover:border-zinc-900 dark:hover:border-white whitespace-nowrap text-sm"
+            >
+              <span>Open in Google Drive</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+
+          <div className="relative w-full h-[4px] mb-8">
+            <div className="absolute top-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
+            <div className="absolute bottom-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
+          </div>
+
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="scroll-mt-20 px-4 sm:px-12"
           >
-            <span>Open in Google Drive</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </a>
-        </div>
+
 
         {/* PDF Viewer via Google Drive Embed */}
         <motion.div
@@ -56,6 +78,8 @@ export default function ResumePage() {
           />
         </motion.div>
       </motion.section>
+        </div>
+      </div>
     </div>
   );
 }

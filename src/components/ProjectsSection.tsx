@@ -70,44 +70,66 @@ export function ProjectsSection({ preview = true }: ProjectsSectionProps) {
   const displayProjects = preview ? projects.slice(0, 2) : filteredProjects;
 
   return (
-    <motion.section
-      id="projects"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5 }}
-      className="mb-16 scroll-mt-20"
-    >
-      <div className="flex items-center gap-3 mb-8">
-        <FolderGit2 className="text-zinc-400" size={24} />
-        <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">Featured Projects</h3>
-      </div>
-
+    <>
       {!preview && (
-        <div className="flex flex-wrap gap-2 mb-8">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors border ${activeFilter === filter
-                ? "bg-accent text-black border-accent"
-                : "bg-black/5 dark:bg-white/5 text-zinc-600 dark:text-zinc-400 border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10"
-                }`}
-            >
-              {filter}
-            </button>
-          ))}
+        <div className="w-full">
+          {/* Page Title Block */}
+          <div className="relative w-full h-[4px] mb-6">
+            <div className="absolute top-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
+            <div className="absolute bottom-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
+          </div>
+          
+          <h1 className="text-center text-3xl md:text-4xl font-bold lowercase tracking-widest text-zinc-900 dark:text-white pb-6 pt-2">
+            projects
+          </h1>
+
+          <div className="flex overflow-x-auto whitespace-nowrap sm:justify-center gap-2 mb-6 px-4 pb-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            {filters.map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors border shrink-0 ${activeFilter === filter
+                  ? "bg-accent text-black border-accent"
+                  : "bg-black/5 dark:bg-white/5 text-zinc-600 dark:text-zinc-400 border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10"
+                  }`}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+
+          <div className="relative w-full h-[4px] mb-8">
+            <div className="absolute top-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
+            <div className="absolute bottom-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
+          </div>
         </div>
       )}
 
+      <motion.section
+        id="projects"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5 }}
+        className="scroll-mt-20 px-4 sm:px-12"
+      >
+        {preview && (
+          <div className="flex items-center gap-3 mb-6 px-4 sm:px-6 pt-4">
+            <FolderGit2 className="text-zinc-400" size={24} />
+            <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">Featured Projects</h3>
+          </div>
+        )}
+
       <div className="flex flex-col">
         {displayProjects.map((project, index) => (
-          <div key={index} className="flex flex-col border-b border-black/5 dark:border-white/5 last:border-0 py-6 first:pt-0">
-            {/* Header (Clickable) */}
-            <div
-              className="flex flex-col sm:flex-row sm:items-start justify-between cursor-pointer group"
+          <div key={index} className="flex flex-col">
+            <div className="px-4 sm:px-6 py-6 group cursor-pointer"
               onClick={() => setExpandedIndices(prev => prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index])}
             >
+              {/* Header (Clickable) */}
+              <div
+                className="flex flex-col sm:flex-row sm:items-start justify-between"
+              >
               <div className="flex-1">
                 <div className="flex items-start gap-2 mb-1">
                   <h4 className="text-xl font-bold text-zinc-900 dark:text-white group-hover:text-accent transition-colors">
@@ -177,6 +199,12 @@ export function ProjectsSection({ preview = true }: ProjectsSectionProps) {
                 </motion.div>
               )}
             </AnimatePresence>
+            </div>
+            
+            {/* Single Horizontal Grid Line (Internal) */}
+            {index !== displayProjects.length - 1 && (
+              <div className="w-full h-[1px] bg-black/20 dark:bg-white/30"></div>
+            )}
           </div>
         ))}
       </div>
@@ -192,5 +220,6 @@ export function ProjectsSection({ preview = true }: ProjectsSectionProps) {
         </div>
       )}
     </motion.section>
+    </>
   );
 }

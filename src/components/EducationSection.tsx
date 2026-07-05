@@ -67,35 +67,28 @@ export function EducationSection({ preview = true }: EducationSectionProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5 }}
-      className="mb-16 scroll-mt-20"
+      className="scroll-mt-20 px-4 sm:px-12"
     >
-      <div className="flex items-center gap-3 mb-10">
-        <GraduationCap className="text-zinc-400" size={24} />
-        <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">Education</h3>
-      </div>
+      {preview && (
+        <div className="flex items-center gap-3 mb-6 px-4 sm:px-6 pt-4">
+          <GraduationCap className="text-zinc-400" size={24} />
+          <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">Education</h3>
+        </div>
+      )}
 
-      <div className={preview ? "" : "relative ml-2"}>
-        {/* Main Vertical Line */}
-        {!preview && (
-          <div className="absolute left-[7.5px] top-4 bottom-0 w-[2px] bg-zinc-200 dark:bg-zinc-800" />
-        )}
-        
-        <div className={preview ? "flex flex-col" : "flex flex-col gap-14"}>
-          {displayEducation.map((edu, index) => (
-            <div key={index} className={preview ? "flex flex-col border-b border-black/5 dark:border-white/5 last:border-0 py-6 first:pt-0" : "relative pl-10 md:pl-12"}>
-              {/* Timeline Node (Circle) */}
-              {!preview && (
-                <div className="absolute left-0 top-3 w-4 h-4 rounded-full border-[3px] border-zinc-900 dark:border-white bg-background ring-4 ring-background z-10" />
-              )}
-
+      <div className="flex flex-col">
+        {displayEducation.map((edu, index) => (
+          <div key={index} className="flex flex-col">
+            <div className="px-4 sm:px-6 py-6 group cursor-pointer"
+              onClick={() => {
+                setExpandedIndices(prev => 
+                  prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
+                );
+              }}
+            >
               {/* Header & Meta Container */}
               <div 
-                className="flex flex-col sm:flex-row sm:items-start justify-between mb-2 gap-4 cursor-pointer group"
-                onClick={() => {
-                  setExpandedIndices(prev => 
-                    prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
-                  );
-                }}
+                className="flex flex-col sm:flex-row sm:items-start justify-between mb-2 gap-4"
               >
                 {/* Institution & Degree */}
                 <div className="flex-1 pr-2">
@@ -158,8 +151,13 @@ export function EducationSection({ preview = true }: EducationSectionProps) {
                 )}
               </AnimatePresence>
             </div>
-          ))}
-        </div>
+            
+            {/* Single Horizontal Grid Line (Internal) */}
+            {index !== displayEducation.length - 1 && (
+              <div className="w-full h-[1px] bg-black/20 dark:bg-white/30"></div>
+            )}
+          </div>
+        ))}
       </div>
       
       {preview && (
