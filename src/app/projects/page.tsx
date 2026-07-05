@@ -1,8 +1,9 @@
 import { ProjectsSection } from "@/components/ProjectsSection";
+import { PageEndQuote } from "@/components/PageEndQuote";
 
 export default function ProjectsPage() {
   return (
-    <div className="pt-4 pb-16">
+    <div className="pt-4">
       <div className="w-full relative max-w-5xl mx-auto">
         {/* Continuous vertical lines (Grid Architecture) - Left Double Line */}
         <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-black/20 dark:bg-white/30 z-0"></div>
@@ -16,6 +17,11 @@ export default function ProjectsPage() {
           <ProjectsSection preview={false} />
         </div>
       </div>
+      
+      <PageEndQuote 
+        word="Meraki" 
+        meaning="A Greek word meaning to put something of yourself into your work." 
+      />
     </div>
   );
 }

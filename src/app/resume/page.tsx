@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion";
 import { FileText } from "lucide-react";
+import { PageEndQuote } from "@/components/PageEndQuote";
 
 export default function ResumePage() {
   return (
-    <div className="pt-4 pb-16">
+    <div className="pt-4">
       <div className="w-full relative max-w-5xl mx-auto">
         {/* Continuous vertical lines (Grid Architecture) - Left Double Line */}
         <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-black/20 dark:bg-white/30 z-0"></div>
@@ -80,6 +81,11 @@ export default function ResumePage() {
       </motion.section>
         </div>
       </div>
+      
+      <PageEndQuote 
+        word="Ikigai" 
+        meaning="A Japanese concept referring to a reason for being; your life's purpose." 
+      />
     </div>
   );
 }
