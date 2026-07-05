@@ -39,16 +39,18 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${syneMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground pt-16 overflow-x-hidden w-full">
+      <body className="min-h-full flex flex-col bg-background text-foreground pt-16 w-full">
         <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
-          <InteractiveGrid />
-          <SplashScreen>
-            <Header />
-            <main className="flex-1 flex flex-col w-full max-w-5xl mx-auto px-6 sm:px-8 lg:px-16 py-4 sm:py-6 lg:py-6">
-              {children}
-            </main>
-            <Footer />
-          </SplashScreen>
+          <div className="w-full overflow-x-hidden relative flex flex-col min-h-[calc(100vh-64px)]">
+            <InteractiveGrid />
+            <SplashScreen>
+              <Header />
+              <main className="flex-1 flex flex-col w-full max-w-5xl mx-auto px-6 sm:px-8 lg:px-16 py-4 sm:py-6 lg:py-6">
+                {children}
+              </main>
+              <Footer />
+            </SplashScreen>
+          </div>
         </ThemeProvider>
       </body>
     </html>
