@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Brain, Download, Send } from "lucide-react";
-import { FaGithub, FaLinkedin, FaInstagram, FaKaggle } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaKaggle, FaEnvelope } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
@@ -50,6 +50,7 @@ export function ProfileCard() {
           { icon: FaXTwitter, href: "#", label: "X" },
           { icon: FaInstagram, href: "#", label: "Instagram" },
           { icon: FaKaggle, href: "#", label: "Kaggle" },
+          { icon: FaEnvelope, href: "mailto:your.email@example.com", label: "Email" },
         ].map((social, index) => (
           <a
             key={index}
