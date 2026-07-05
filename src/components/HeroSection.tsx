@@ -60,7 +60,7 @@ export function HeroBottom() {
         {[
           { value: "10+", label: "Completed Projects" },
           { value: "1+", label: "Years of Experience" },
-          { value: "15+", label: "Happy Clients" },
+          { value: "150+", label: "DSA Problems Solved" },
           { value: "5+", label: "Courses Completed" },
         ].map((stat, index) => (
           <div key={index} className="flex flex-col gap-2">
