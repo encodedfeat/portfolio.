@@ -72,20 +72,18 @@ export function ExperienceSection({ preview = true }: ExperienceSectionProps) {
                 className="flex flex-col sm:flex-row sm:items-start justify-between"
               >
               <div className="flex-1">
-                <div className="flex items-start gap-2 mb-1">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <h4 className="text-xl font-bold text-zinc-900 dark:text-white group-hover:text-accent transition-colors">
-                      {exp.company}
-                    </h4>
+                <div className="mb-1">
+                  <h4 className="text-xl font-bold text-zinc-900 dark:text-white group-hover:text-accent transition-colors">
+                    {exp.company}
                     {exp.isWorking && (
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/10 text-accent text-xs font-medium border border-accent/20">
+                      <span className="inline-flex align-middle ml-3 items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/10 text-accent text-xs font-medium border border-accent/20 -mt-1">
                         <Circle size={8} fill="currentColor" /> Working
                       </span>
                     )}
-                  </div>
-                  <span className="shrink-0 text-zinc-400 mt-1">
-                    {expandedIndices.includes(index) ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
-                  </span>
+                    <span className="inline-flex align-middle text-zinc-400 ml-2">
+                      {expandedIndices.includes(index) ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
+                    </span>
+                  </h4>
                 </div>
                 <p className="text-zinc-600 dark:text-zinc-400">{exp.role}</p>
                 </div>
