@@ -73,7 +73,7 @@ export function ProfileCard() {
       <div className="flex flex-wrap gap-3 w-full">
         <Link
           href="/resume"
-          className="flex-1 min-w-[130px] flex items-center justify-center gap-2 bg-black/5 dark:bg-white/5 hover:bg-zinc-900 dark:hover:bg-white hover:text-white dark:hover:text-black text-zinc-900 dark:text-white rounded-xl py-3 px-4 font-medium transition-colors border border-black/5 dark:border-white/5 hover:border-zinc-900 dark:hover:border-white"
+          className="flex-1 min-w-[130px] flex items-center justify-center gap-2 bg-zinc-900 dark:bg-white hover:bg-zinc-800 dark:hover:bg-white/90 text-white dark:text-black rounded-xl py-3 px-4 font-medium transition-colors border border-zinc-900 dark:border-white"
         >
           <Download size={18} />
           <span className="text-sm whitespace-nowrap">Download CV</span>
