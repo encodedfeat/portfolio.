@@ -25,9 +25,9 @@ export function HeroTop() {
         <span className="text-zinc-600 dark:text-zinc-400 font-medium">Hello</span>
       </div>
 
-      <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold text-zinc-900 dark:text-white mb-2 leading-tight">
+      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-900 dark:text-white mb-2 leading-tight">
         I'm Mohit, <br />
-        <span className="text-accent">
+        <span className="text-accent whitespace-nowrap">
           <Typewriter
             words={["Python Developer", "Django Developer", "Data Scientist"]}
             loop={true}

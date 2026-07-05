@@ -75,14 +75,14 @@ export function ProfileCard() {
           className="flex-1 min-w-[130px] flex items-center justify-center gap-2 bg-black/5 dark:bg-white/5 hover:bg-zinc-900 dark:hover:bg-white hover:text-white dark:hover:text-black text-zinc-900 dark:text-white rounded-xl py-3 px-4 font-medium transition-colors border border-black/5 dark:border-white/5 hover:border-zinc-900 dark:hover:border-white"
         >
           <Download size={18} />
-          <span className="text-sm">Download CV</span>
+          <span className="text-sm whitespace-nowrap">Download CV</span>
         </Link>
         <a
           href="#"
           className="flex-1 min-w-[130px] flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-black rounded-xl py-3 px-4 font-medium transition-colors"
         >
           <Send size={18} />
-          <span className="text-sm">Contact Me</span>
+          <span className="text-sm whitespace-nowrap">Contact Me</span>
         </a>
       </div>
     </motion.div>
