@@ -14,8 +14,8 @@ export function InteractiveGrid() {
       containerRef.current.style.setProperty("--x", `${clientX}px`);
       containerRef.current.style.setProperty("--y", `${clientY}px`);
       
-      // Fast fade in when moving
-      containerRef.current.style.transitionDuration = "100ms";
+      // Smooth fade in when moving
+      containerRef.current.style.transitionDuration = "800ms";
       containerRef.current.style.opacity = "1";
 
       if (timeoutRef.current) {
