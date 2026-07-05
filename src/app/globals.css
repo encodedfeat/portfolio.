@@ -127,3 +127,11 @@ html {
     align-self: flex-end;
   }
 }
+
+/* Hide tooltip while the user is actively scrolling the calendar */
+.is-scrolling #react-tooltip {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: opacity 0.1s ease-out !important;
+}
