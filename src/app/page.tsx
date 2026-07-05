@@ -8,10 +8,17 @@ import { EducationSection } from "@/components/EducationSection";
 export default function Home() {
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-[minmax(280px,35%)_1fr] lg:grid-cols-[350px_1fr] gap-y-8 md:gap-y-0 md:gap-x-10 lg:gap-x-16 pt-4 pb-12">
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(280px,35%)_1fr] lg:grid-cols-[350px_1fr] gap-y-8 md:gap-y-0 md:gap-x-10 lg:gap-x-16 pt-4 pb-8 md:pb-12">
         {/* Mobile: 1. HeroTop (Hello, I'm Mohit... Based in...) */}
-        <div className="order-1 md:order-2 md:col-start-2 md:row-start-1">
-          <HeroTop />
+        <div className="order-1 md:order-2 md:col-start-2 md:row-start-1 relative">
+          <div className="absolute -top-4 bottom-[-16px] left-0 w-[1px] bg-black/20 dark:bg-white/30 z-0 md:hidden"></div>
+          <div className="absolute -top-4 bottom-[-16px] left-[3px] w-[1px] bg-black/20 dark:bg-white/30 z-0 md:hidden"></div>
+          <div className="absolute -top-4 bottom-[-16px] right-0 w-[1px] bg-black/20 dark:bg-white/30 z-0 md:hidden"></div>
+          <div className="absolute -top-4 bottom-[-16px] right-[3px] w-[1px] bg-black/20 dark:bg-white/30 z-0 md:hidden"></div>
+          
+          <div className="relative z-10 pb-2 md:pb-0">
+            <HeroTop />
+          </div>
         </div>
 
         {/* Mobile: 2. Profile Card */}
@@ -20,8 +27,15 @@ export default function Home() {
         </div>
 
         {/* Mobile: 3. HeroBottom (Paragraph, Stats) */}
-        <div className="order-3 md:order-3 md:col-start-2 md:row-start-2">
-          <HeroBottom />
+        <div className="order-3 md:order-3 md:col-start-2 md:row-start-2 relative min-w-0">
+          <div className="absolute top-[-16px] bottom-[-32px] left-0 w-[1px] bg-black/20 dark:bg-white/30 z-0 md:hidden"></div>
+          <div className="absolute top-[-16px] bottom-[-32px] left-[3px] w-[1px] bg-black/20 dark:bg-white/30 z-0 md:hidden"></div>
+          <div className="absolute top-[-16px] bottom-[-32px] right-0 w-[1px] bg-black/20 dark:bg-white/30 z-0 md:hidden"></div>
+          <div className="absolute top-[-16px] bottom-[-32px] right-[3px] w-[1px] bg-black/20 dark:bg-white/30 z-0 md:hidden"></div>
+          
+          <div className="relative z-10">
+            <HeroBottom />
+          </div>
         </div>
       </div>
 
@@ -34,7 +48,13 @@ export default function Home() {
         <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-black/20 dark:bg-white/30 z-0"></div>
         <div className="absolute top-0 bottom-0 right-[3px] w-[1px] bg-black/20 dark:bg-white/30 z-0"></div>
 
-        <div className="relative z-10 w-full flex flex-col pt-8">
+        <div className="relative z-10 w-full flex flex-col pt-0 md:pt-8">
+          
+          {/* Top Horizontal Separator for Sections */}
+          <div className="relative w-full h-[4px] mb-6 md:mb-8">
+            <div className="absolute top-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
+            <div className="absolute bottom-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
+          </div>
           <ExperienceSection preview={true} />
           
           {/* Double Horizontal Line Separator */}

@@ -1,7 +1,14 @@
 "use client";
+import React, { useRef, useEffect } from "react";
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
+import dynamic from 'next/dynamic';
+import { useTheme } from 'next-themes';
+
+const GitHubCalendar = dynamic(() => import('react-github-calendar').then((mod) => mod.GitHubCalendar), { ssr: false });
 
 export function HeroTop() {
   return (
@@ -11,7 +18,7 @@ export function HeroTop() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5 }}
-      className="scroll-mt-20"
+      className="scroll-mt-20 px-8 sm:px-[72px] md:px-0"
     >
       <div className="flex items-center gap-2 mb-6">
         <span className="text-xl">👋</span>
@@ -41,33 +48,89 @@ export function HeroTop() {
 }
 
 export function HeroBottom() {
+  const { resolvedTheme } = useTheme();
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    
+    const scrollToRight = () => {
+      // We added 'data-tooltip-id' to every calendar block. 
+      // This perfectly detects when the calendar data is actually rendered.
+      const hasCalendarData = el.querySelector('[data-tooltip-id="react-tooltip"]');
+      
+      if (hasCalendarData) {
+        if (el.scrollWidth > el.clientWidth) {
+          el.scrollLeft = el.scrollWidth;
+        }
+        return true; // Calendar loaded, stop polling
+      }
+      return false;
+    };
+    
+    // Attempt immediately in case it's somehow cached and ready
+    if (scrollToRight()) return;
+    
+    const intervalId = setInterval(() => {
+      if (scrollToRight()) {
+        // Layout might still be settling, enforce scroll one last time shortly after
+        setTimeout(() => {
+          if (el) el.scrollLeft = el.scrollWidth;
+        }, 50);
+        clearInterval(intervalId);
+      }
+    }, 100);
+    
+    const timeoutId = setTimeout(() => {
+      clearInterval(intervalId);
+    }, 5000);
+    
+    return () => {
+      clearInterval(intervalId);
+      clearTimeout(timeoutId);
+    };
+  }, []);
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5 }}
-      className="mt-0 md:mt-8"
+      className="mt-0 md:mt-2 px-8 sm:px-[72px] md:px-0"
     >
-      <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed max-w-3xl mb-12 text-justify">
-        I specialize in creating robust backend systems, building scalable web applications with Django,
-        and developing intelligent machine learning models. With a strong focus on writing clean, efficient code,
-        I aim to bring innovative ideas to life and solve complex problems seamlessly.
+      <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed max-w-3xl mb-6 text-justify">
+        Building scalable backend systems and intelligent ML models. Focused on writing clean, efficient code to solve complex problems.
       </p>
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
-        {[
-          { value: "10+", label: "Completed Projects" },
-          { value: "1+", label: "Years of Experience" },
-          { value: "150+", label: "DSA Problems Solved" },
-          { value: "5+", label: "Courses Completed" },
-        ].map((stat, index) => (
-          <div key={index} className="flex flex-col gap-2">
-            <span className="text-4xl font-bold text-accent">{stat.value}</span>
-            <span className="text-sm text-zinc-600 dark:text-zinc-400">{stat.label}</span>
-          </div>
-        ))}
+      {/* GitHub Calendar */}
+      <h3 className="text-xl font-bold text-accent mb-4 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 8 18v4"></path></svg>
+        GitHub Stats
+      </h3>
+      <div 
+        ref={scrollContainerRef}
+        className="w-full overflow-x-auto pb-4 custom-scrollbar"
+      >
+        <GitHubCalendar 
+          username="encodedfeat" 
+          colorScheme={resolvedTheme === 'dark' ? 'dark' : 'light'}
+          blockSize={14}
+          blockMargin={4}
+          fontSize={12}
+          theme={{
+            light: ['#ebedf0', '#fef3c7', '#fcd34d', '#f59e0b', '#d97706'],
+            dark: ['#161b22', '#78350f', '#b45309', '#f59e0b', '#fbbf24'],
+          }}
+          renderBlock={(block, activity) => 
+            React.cloneElement(block as any, {
+              'data-tooltip-id': 'react-tooltip',
+              'data-tooltip-content': `${activity.count} contributions on ${activity.date}`,
+            })
+          }
+        />
+        <Tooltip id="react-tooltip" className="z-50" />
       </div>
     </motion.div>
   );
