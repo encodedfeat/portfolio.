@@ -61,8 +61,9 @@ export function HeroBottom() {
       const hasCalendarData = el.querySelector('[data-tooltip-id="react-tooltip"]');
       
       if (hasCalendarData) {
-        if (el.scrollWidth > el.clientWidth) {
-          el.scrollLeft = el.scrollWidth;
+        const scrollableEl = el.querySelector('.react-activity-calendar > div:first-of-type') || el;
+        if (scrollableEl.scrollWidth > scrollableEl.clientWidth) {
+          scrollableEl.scrollLeft = scrollableEl.scrollWidth;
         }
         return true; // Calendar loaded, stop polling
       }
@@ -111,9 +112,10 @@ export function HeroBottom() {
       </h3>
       <div 
         ref={scrollContainerRef}
-        className="w-full overflow-x-auto pb-4 custom-scrollbar"
+        className="w-full pb-4"
       >
         <GitHubCalendar 
+          className="react-activity-calendar"
           username="encodedfeat" 
           colorScheme={resolvedTheme === 'dark' ? 'dark' : 'light'}
           blockSize={14}

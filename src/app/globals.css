@@ -76,3 +76,50 @@ html {
 .custom-scrollbar:hover::-webkit-scrollbar-thumb {
   background-color: rgba(161, 161, 170, 0.5);
 }
+
+/* Calendar responsive layout */
+.react-activity-calendar {
+  width: 100%;
+}
+
+.react-activity-calendar > div:first-of-type {
+  overflow-x: auto !important;
+  width: 100% !important;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.3s ease;
+  padding-bottom: 4px;
+}
+
+.react-activity-calendar > div:first-of-type:hover {
+  scrollbar-color: rgba(161, 161, 170, 0.5) transparent;
+}
+
+.react-activity-calendar > div:first-of-type::-webkit-scrollbar {
+  height: 4px;
+}
+.react-activity-calendar > div:first-of-type::-webkit-scrollbar-track {
+  background: transparent;
+}
+.react-activity-calendar > div:first-of-type::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 20px;
+}
+.react-activity-calendar > div:first-of-type:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(161, 161, 170, 0.5);
+}
+
+@media (max-width: 640px) {
+  .react-activity-calendar__footer {
+    display: flex;
+    flex-direction: column !important;
+    gap: 8px !important;
+    margin-top: 12px;
+  }
+  .react-activity-calendar__footer > div:first-child {
+    align-self: flex-start;
+  }
+  .react-activity-calendar__footer > div:last-child {
+    align-self: flex-end;
+  }
+}
