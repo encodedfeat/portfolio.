@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { SplashScreen } from "@/components/SplashScreen";
 import { InteractiveGrid } from "@/components/InteractiveGrid";
+import { LayoutWrapper } from "@/components/LayoutWrapper";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -37,17 +38,18 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} ${syneMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground pt-16 w-full">
         <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
-          <div className="w-full overflow-x-hidden relative flex flex-col min-h-[calc(100vh-64px)]">
+          <div className="w-full overflow-x-clip relative flex flex-col min-h-[calc(100vh-64px)]">
             <InteractiveGrid />
             <SplashScreen>
               <Header />
-              <main className="flex-1 flex flex-col w-full max-w-5xl mx-auto px-6 sm:px-8 lg:px-16 py-4 sm:py-6 lg:py-6">
+              <LayoutWrapper>
                 {children}
-              </main>
+              </LayoutWrapper>
               <Footer />
             </SplashScreen>
           </div>

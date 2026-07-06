@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <>
       <footer className="w-full mt-auto bg-zinc-50 dark:bg-[#0c0c0e] border-t border-black/5 dark:border-white/5 relative z-10">
-        <div className="max-w-5xl mx-auto px-4 sm:px-8 lg:px-16 pt-8 sm:pt-12 pb-24 sm:pb-32">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8 pt-8 sm:pt-12 pb-24 sm:pb-32">
           <div className="grid grid-cols-3 gap-2 sm:gap-8 mb-8">
             {/* Navigation */}
             <div>

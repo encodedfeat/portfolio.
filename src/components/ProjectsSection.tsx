@@ -73,17 +73,9 @@ export function ProjectsSection({ preview = true }: ProjectsSectionProps) {
     <>
       {!preview && (
         <div className="w-full">
-          {/* Page Title Block */}
-          <div className="relative w-full h-[4px] mb-6">
-            <div className="absolute top-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
-            <div className="absolute bottom-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
-          </div>
-          
-          <h1 className="text-center text-3xl md:text-4xl font-bold lowercase tracking-widest text-zinc-900 dark:text-white pb-6 pt-2">
-            projects
-          </h1>
 
-          <div className="flex overflow-x-auto whitespace-nowrap sm:justify-center gap-2 mb-6 px-4 pb-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+
+          <div className="flex overflow-x-auto whitespace-nowrap sm:justify-center gap-2 mb-6 px-0 pb-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {filters.map((filter) => (
               <button
                 key={filter}
@@ -98,20 +90,13 @@ export function ProjectsSection({ preview = true }: ProjectsSectionProps) {
             ))}
           </div>
 
-          <div className="relative w-full h-[4px] mb-8">
-            <div className="absolute top-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
-            <div className="absolute bottom-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
-          </div>
+
         </div>
       )}
 
-      <motion.section
+      <section
         id="projects"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5 }}
-        className="scroll-mt-20 px-4 sm:px-12"
+        className="scroll-mt-20 px-0"
       >
         {preview && (
           <div className="flex items-center gap-3 mb-6 px-4 sm:px-6 pt-4">
@@ -123,7 +108,7 @@ export function ProjectsSection({ preview = true }: ProjectsSectionProps) {
       <div className="flex flex-col">
         {displayProjects.map((project, index) => (
           <div key={index} className="flex flex-col">
-            <div className="px-4 sm:px-6 py-6 group cursor-pointer"
+            <div className="py-6 group cursor-pointer"
               onClick={() => setExpandedIndices(prev => prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index])}
             >
               {/* Header (Clickable) */}
@@ -219,7 +204,7 @@ export function ProjectsSection({ preview = true }: ProjectsSectionProps) {
           </Link>
         </div>
       )}
-    </motion.section>
+    </section>
     </>
   );
 }

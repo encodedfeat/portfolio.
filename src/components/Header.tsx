@@ -1,141 +1,56 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
-import { useEffect, useState, useRef } from "react";
-import { usePathname } from "next/navigation";
+import Image from "next/image";
+import { MessageSquare, Download } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function Header() {
-  const navLinks = [
-    { name: "Home", href: "/", id: "home" },
-    { name: "Experience", href: "/experience", id: "experience" },
-    { name: "Projects", href: "/projects", id: "projects" },
-    { name: "Skills", href: "/skills", id: "skills" },
-    { name: "Education", href: "/education", id: "education" },
-  ];
-
-  const [mounted, setMounted] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const headerRef = useRef<HTMLElement>(null);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent | TouchEvent) {
-      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
-        setIsMobileMenuOpen(false);
-      }
-    }
-
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-      document.addEventListener("mousedown", handleClickOutside);
-      document.addEventListener("touchstart", handleClickOutside);
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
-    return () => {
-      document.body.style.overflow = "unset";
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchstart", handleClickOutside);
-    };
-  }, [isMobileMenuOpen]);
-
   return (
-    <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 bg-background">
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-16 flex h-16 items-center justify-between">
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={`text-sm font-medium transition-colors ${pathname === link.href
-                ? "text-accent"
-                : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
-                }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Mobile Branding (Visible only on mobile) */}
-        <div className="md:hidden font-bold text-lg text-zinc-900 dark:text-white">
-          Mohit
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-black/5 dark:border-white/5">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 flex h-16 items-center justify-between">
+        
+        {/* Left: Branding */}
+        <div className="flex items-center gap-2">
+          <Link href="/" className="font-bold text-xl text-zinc-900 dark:text-white flex items-center gap-2">
+            {/* Avatar Logo */}
+            <div className="w-8 h-8 rounded-md bg-yellow-400 border border-black overflow-hidden flex-shrink-0 relative">
+              <Image 
+                src="/avatar.png" 
+                alt="Mohit Logo"
+                fill
+                className="object-cover scale-[1.5] mix-blend-multiply"
+              />
+            </div>
+            <span className="hidden sm:block">Mohit</span>
+          </Link>
         </div>
 
-        {/* Right Side Controls */}
-        <div className="flex items-center gap-2 sm:gap-4">
-          <Link
-            href="/resume"
-            className={`hidden md:block text-sm font-medium transition-colors ${
-              pathname === "/resume"
-                ? "text-accent"
-                : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
-            }`}
+        {/* Right: Controls (Chat AI, Download, Theme Toggle) */}
+        <div className="flex items-center gap-3 sm:gap-4">
+          {/* Chat AI Button */}
+          <button
+            className="flex items-center gap-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            title="Chat AI"
           >
-            Resume
-          </Link>
+            <MessageSquare size={20} />
+            <span className="hidden md:block">Chat AI</span>
+          </button>
+
+          {/* Download Resume Button */}
+          <a
+            href="https://drive.google.com/uc?export=download&id=1Wx6mfgym7owMoVk741zvzplq5bZ_NwTxQF9E6nqmY58"
+            className="flex items-center gap-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            title="Download CV"
+          >
+            <Download size={20} />
+            <span className="hidden md:block">Download CV</span>
+          </a>
 
           {/* Theme Toggle */}
           <ThemeToggle />
-
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 -mr-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            aria-label="Toggle mobile menu"
-          >
-            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
         </div>
       </div>
-
-      {/* Mobile Overlay */}
-      {isMobileMenuOpen && (
-        <div
-          className="md:hidden fixed inset-0 top-16 bg-background/40 backdrop-blur-sm z-40 h-[200vh]"
-          onClick={() => setIsMobileMenuOpen(false)}
-          aria-hidden="true"
-        />
-      )}
-
-      {/* Mobile Menu Dropdown */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-black/5 dark:border-white/5 px-6 py-6 flex flex-col gap-6 shadow-xl z-50">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className={`text-base font-medium transition-colors ${pathname === link.href
-                ? "text-accent"
-                : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
-                }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <div className="h-[1px] w-full bg-black/5 dark:bg-white/5 my-2" />
-          <Link
-            href="/resume"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className={`text-base font-medium transition-colors ${
-              pathname === "/resume"
-                ? "text-accent"
-                : "text-zinc-900 dark:text-white"
-            }`}
-          >
-            Resume
-          </Link>
-        </div>
-      )}
     </header>
   );
 }

@@ -3,39 +3,23 @@ import { PageEndQuote } from "@/components/PageEndQuote";
 
 export default function ExperiencePage() {
   return (
-    <div className="pt-4">
-      <div className="w-full relative max-w-5xl mx-auto">
-        {/* Continuous vertical lines (Grid Architecture) - Left Double Line */}
-        <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-black/20 dark:bg-white/30 z-0"></div>
-        <div className="absolute top-0 bottom-0 left-[3px] w-[1px] bg-black/20 dark:bg-white/30 z-0"></div>
-        
-        {/* Continuous vertical lines (Grid Architecture) - Right Double Line */}
-        <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-black/20 dark:bg-white/30 z-0"></div>
-        <div className="absolute top-0 bottom-0 right-[3px] w-[1px] bg-black/20 dark:bg-white/30 z-0"></div>
-
-        <div className="relative z-10 w-full flex flex-col pt-8">
-          {/* Page Title Block */}
-          <div className="relative w-full h-[4px] mb-6">
-            <div className="absolute top-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
-            <div className="absolute bottom-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
-          </div>
-          
-          <h1 className="text-center text-3xl md:text-4xl font-bold lowercase tracking-widest text-zinc-900 dark:text-white pb-6 pt-2">
-            experience
-          </h1>
-
-          <div className="relative w-full h-[4px] mb-8">
-            <div className="absolute top-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
-            <div className="absolute bottom-0 -left-4 -right-4 h-[1px] bg-black/20 dark:bg-white/30 z-10"></div>
-          </div>
-
-          <ExperienceSection preview={false} />
-        </div>
+    <div className="flex flex-col w-full px-2 relative">
+      {/* Floating Header */}
+      <div className="flex flex-col gap-2 sticky top-0 z-20 bg-white dark:bg-black pb-6 pt-2 -mx-2 px-2">
+        <h1 className="text-3xl font-extrabold text-zinc-900 dark:text-white">Experience</h1>
+        <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
+          My professional work experience and internships.
+        </p>
       </div>
 
-      <PageEndQuote 
-        word="Shokunin" 
-        meaning="A Japanese word for an artisan deeply dedicated to their craft." 
+      {/* Content */}
+      <div className="flex-1 mt-2">
+        <ExperienceSection preview={false} />
+      </div>
+
+      <PageEndQuote
+        word="Shokunin"
+        meaning="An artisan who is deeply dedicated to their craft, always striving for perfection."
       />
     </div>
   );

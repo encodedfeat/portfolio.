@@ -46,13 +46,9 @@ export function ExperienceSection({ preview = true }: ExperienceSectionProps) {
   const displayExperiences = preview ? experiences.slice(0, 2) : experiences;
 
   return (
-    <motion.section
+    <section
       id="experience"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5 }}
-      className="scroll-mt-20 px-4 sm:px-12"
+      className="scroll-mt-20 px-0"
     >
       {preview && (
         <div className="flex items-center gap-3 mb-6 px-4 sm:px-6 pt-4">
@@ -64,7 +60,7 @@ export function ExperienceSection({ preview = true }: ExperienceSectionProps) {
       <div className="flex flex-col">
         {displayExperiences.map((exp, index) => (
           <div key={index} className="flex flex-col">
-            <div className="px-4 sm:px-6 py-6 group cursor-pointer"
+            <div className="py-6 group cursor-pointer"
               onClick={() => setExpandedIndices(prev => prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index])}
             >
               {/* Header (Clickable) */}
@@ -156,6 +152,6 @@ export function ExperienceSection({ preview = true }: ExperienceSectionProps) {
           </Link>
         </div>
       )}
-    </motion.section>
+    </section>
   );
 }
