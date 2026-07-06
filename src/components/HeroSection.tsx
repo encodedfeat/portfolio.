@@ -125,6 +125,28 @@ export function HeroBottom() {
         Building scalable backend systems and intelligent ML models. Focused on writing clean, efficient code to solve complex problems.
       </p>
 
+      {/* Mobile Buttons (moved inside vertical lines) */}
+      <div className="flex md:hidden flex-wrap gap-2 sm:gap-3 w-full mb-8">
+        <div className="w-full flex items-center justify-center gap-2 bg-black/5 dark:bg-white/5 rounded-xl py-2.5 px-3 border border-black/10 dark:border-white/10">
+          <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+          <span className="text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-300 whitespace-nowrap">Available for work</span>
+        </div>
+        <Link
+          href="/resume"
+          className="flex-1 min-w-[120px] flex items-center justify-center gap-1.5 bg-black/5 dark:bg-white/5 hover:bg-zinc-900 dark:hover:bg-white hover:text-white dark:hover:text-black text-zinc-900 dark:text-white rounded-xl py-2.5 px-3 font-medium transition-colors border border-black/5 dark:border-white/5 hover:border-zinc-900 dark:hover:border-white"
+        >
+          <Download size={16} />
+          <span className="text-xs sm:text-sm whitespace-nowrap">Download CV</span>
+        </Link>
+        <a
+          href="#"
+          className="flex-1 min-w-[120px] flex items-center justify-center gap-1.5 bg-black/5 dark:bg-white/5 hover:bg-zinc-900 dark:hover:bg-white hover:text-white dark:hover:text-black text-zinc-900 dark:text-white rounded-xl py-2.5 px-3 font-medium transition-colors border border-black/5 dark:border-white/5 hover:border-zinc-900 dark:hover:border-white"
+        >
+          <Send size={16} />
+          <span className="text-xs sm:text-sm whitespace-nowrap">Contact Me</span>
+        </a>
+      </div>
+
       {/* GitHub Calendar */}
       <h3 className="text-xl font-bold text-accent mb-4 flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 8 18v4"></path></svg>
@@ -226,7 +248,7 @@ export function MobileHero() {
       </div>
 
       {/* Typewriter */}
-      <h1 className="text-2xl font-bold text-zinc-900 dark:text-white mb-6 leading-tight">
+      <h1 className="text-2xl font-bold text-zinc-900 dark:text-white leading-tight mb-0">
         <span className="text-accent">
           <Typewriter
             words={["Python Developer", "Django Developer", "Data Scientist"]}
@@ -239,28 +261,6 @@ export function MobileHero() {
           />
         </span>
       </h1>
-
-      {/* Buttons */}
-      <div className="flex flex-wrap gap-2 sm:gap-3 w-full">
-        <div className="w-full flex items-center justify-center gap-2 bg-black/5 dark:bg-white/5 rounded-xl py-2.5 px-3 border border-black/10 dark:border-white/10">
-          <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-          <span className="text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-300 whitespace-nowrap">Available for work</span>
-        </div>
-        <Link
-          href="/resume"
-          className="flex-1 min-w-[120px] flex items-center justify-center gap-1.5 bg-black/5 dark:bg-white/5 hover:bg-zinc-900 dark:hover:bg-white hover:text-white dark:hover:text-black text-zinc-900 dark:text-white rounded-xl py-2.5 px-3 font-medium transition-colors border border-black/5 dark:border-white/5 hover:border-zinc-900 dark:hover:border-white"
-        >
-          <Download size={16} />
-          <span className="text-xs sm:text-sm whitespace-nowrap">Download CV</span>
-        </Link>
-        <a
-          href="#"
-          className="flex-1 min-w-[120px] flex items-center justify-center gap-1.5 bg-black/5 dark:bg-white/5 hover:bg-zinc-900 dark:hover:bg-white hover:text-white dark:hover:text-black text-zinc-900 dark:text-white rounded-xl py-2.5 px-3 font-medium transition-colors border border-black/5 dark:border-white/5 hover:border-zinc-900 dark:hover:border-white"
-        >
-          <Send size={16} />
-          <span className="text-xs sm:text-sm whitespace-nowrap">Contact Me</span>
-        </a>
-      </div>
     </motion.div>
   );
 }
