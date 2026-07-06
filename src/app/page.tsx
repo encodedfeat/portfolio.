@@ -9,7 +9,12 @@ import { PageEndQuote } from "@/components/PageEndQuote";
 export default function Home() {
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-[minmax(280px,35%)_1fr] lg:grid-cols-[350px_1fr] gap-y-0 md:gap-x-10 lg:gap-x-16 pt-4 pb-8 md:pb-12">
+      <div className="relative grid grid-cols-1 md:grid-cols-[minmax(280px,35%)_1fr] lg:grid-cols-[350px_1fr] gap-y-0 md:gap-x-10 lg:gap-x-16 pt-4 pb-8 md:pb-12">
+        {/* Mobile: Vertical lines stretching to top */}
+        <div className="absolute top-[-16px] bottom-[-32px] left-0 w-[1px] bg-black/20 dark:bg-white/30 z-0 md:hidden"></div>
+        <div className="absolute top-[-16px] bottom-[-32px] left-[3px] w-[1px] bg-black/20 dark:bg-white/30 z-0 md:hidden"></div>
+        <div className="absolute top-[-16px] bottom-[-32px] right-0 w-[1px] bg-black/20 dark:bg-white/30 z-0 md:hidden"></div>
+        <div className="absolute top-[-16px] bottom-[-32px] right-[3px] w-[1px] bg-black/20 dark:bg-white/30 z-0 md:hidden"></div>
         {/* Mobile: 1. Custom Hero Header */}
         <div className="md:hidden order-1 col-start-1 relative z-10 pb-0">
           <MobileHero />
@@ -27,10 +32,6 @@ export default function Home() {
 
         {/* Mobile: 3. HeroBottom (Paragraph, Stats) */}
         <div className="order-3 md:order-3 md:col-start-2 md:row-start-2 relative min-w-0 mt-[2px] md:mt-0">
-          <div className="absolute top-[-2px] bottom-[-32px] left-0 w-[1px] bg-black/20 dark:bg-white/30 z-0 md:hidden"></div>
-          <div className="absolute top-[-2px] bottom-[-32px] left-[3px] w-[1px] bg-black/20 dark:bg-white/30 z-0 md:hidden"></div>
-          <div className="absolute top-[-2px] bottom-[-32px] right-0 w-[1px] bg-black/20 dark:bg-white/30 z-0 md:hidden"></div>
-          <div className="absolute top-[-2px] bottom-[-32px] right-[3px] w-[1px] bg-black/20 dark:bg-white/30 z-0 md:hidden"></div>
 
           <div className="relative z-10">
             <HeroBottom />

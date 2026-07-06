@@ -196,7 +196,7 @@ export function MobileHero() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5 }}
-      className="px-6 sm:px-8"
+      className="px-8 sm:px-8"
     >
       {/* Hello */}
       <div className="flex items-center gap-2 mb-6">
