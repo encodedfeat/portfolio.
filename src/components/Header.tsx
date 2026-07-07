@@ -22,12 +22,6 @@ export function Header() {
     }
   };
 
-  const handleChatClick = () => {
-    // Since Chat AI doesn't have a page right now, we simulate being on it
-    setToastMsg(`You are on Chat AI page`);
-    setTimeout(() => setToastMsg(null), 2500);
-  };
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-black/5 dark:border-white/5">
       
@@ -83,14 +77,15 @@ export function Header() {
         <div className="flex items-center justify-end gap-3 sm:gap-4 flex-1">
 
           {/* Chat AI Button */}
-          <button
-            onClick={handleChatClick}
+          <Link
+            href="/chat"
+            onClick={(e) => handleNavClick(e, "/chat", "Chat AI")}
             className="flex items-center gap-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
             title="Chat AI"
           >
             <MessageSquare size={20} />
             <span className="hidden md:block">Chat AI</span>
-          </button>
+          </Link>
 
           {/* Download Resume Button */}
           <a

@@ -12,9 +12,9 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const isHomeOrBlogsIndex = pathname === "/" || pathname === "/blogs";
+  const isStandaloneLayout = pathname === "/" || pathname === "/blogs" || pathname === "/chat";
 
-  if (isHomeOrBlogsIndex) {
+  if (isStandaloneLayout) {
     return (
       <main className="flex-1 flex flex-col items-center justify-center w-full px-6 py-12 min-h-[calc(100vh-64px)]">
         {children}
