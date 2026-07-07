@@ -4,23 +4,16 @@ import { useState, useEffect, RefObject } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mouse } from "lucide-react";
 
-interface ScrollIndicatorProps {
-  scrollRef: RefObject<HTMLDivElement | null>;
-}
-
-export function ScrollIndicator({ scrollRef }: ScrollIndicatorProps) {
+export function ScrollIndicator() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
     // Check local storage to see if they've scrolled before
     const hasScrolled = localStorage.getItem("has-scrolled-v2");
     
-    // Check if the element is actually scrollable before showing!
-    const el = scrollRef.current;
-    
-    // Slight delay before showing it, to let them read the top first
+    // Check if the page is scrollable
     const timer = setTimeout(() => {
-      if (!hasScrolled && el && el.scrollHeight > el.clientHeight) {
+      if (!hasScrolled && document.documentElement.scrollHeight > window.innerHeight) {
         setShow(true);
       }
     }, 1500);
@@ -29,19 +22,16 @@ export function ScrollIndicator({ scrollRef }: ScrollIndicatorProps) {
   }, []);
 
   useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-
     const handleScroll = () => {
-      if (el.scrollTop > 20 && show) {
+      if (window.scrollY > 20 && show) {
         setShow(false);
         localStorage.setItem("has-scrolled-v2", "true");
       }
     };
 
-    el.addEventListener("scroll", handleScroll, { passive: true });
-    return () => el.removeEventListener("scroll", handleScroll);
-  }, [show, scrollRef]);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [show]);
 
   return (
     <AnimatePresence>
