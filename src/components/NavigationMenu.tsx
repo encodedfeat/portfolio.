@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { ChevronRight, ChevronDown, Copy, Check, BadgeCheck } from "lucide-react";
+import { ChevronRight, ChevronDown, Copy, Check, BadgeCheck, ArrowUpRight } from "lucide-react";
 import { FaGithub, FaLinkedin, FaInstagram, FaKaggle, FaEnvelope, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Tooltip } from 'react-tooltip';
@@ -128,7 +128,7 @@ export function NavigationMenu() {
               </span>
               Available for work (Hire me)
             </span>
-            <ChevronRight size={18} className="text-zinc-400 dark:text-zinc-500 group-hover:translate-x-0.5 transition-transform" />
+            <ArrowUpRight size={18} className="text-zinc-400 dark:text-zinc-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </a>
         </div>
 
