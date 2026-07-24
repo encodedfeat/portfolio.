@@ -23,7 +23,7 @@ const blogPosts = {
           biased indian (@RakeshK32229480) on X ↗
         </a>
       ),
-      mediumLink: "#",
+      mediumLink: "https://medium.com/@encodedfeat/more-than-numbers-and-money-8a0236f7f9cf?sharedUserId=encodedfeat",
       xLink: "https://x.com/encodedfeat/status/2080230556558938376"
     },
     content: (
