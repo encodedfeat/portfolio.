@@ -5,33 +5,42 @@ import { FaMedium } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { MessageSquare, Quote } from "lucide-react";
 
-// Demo blog data
+//  blog data
 const blogPosts = {
   "more-than-numbers": {
     title: "1. More Than Numbers and Money",
     date: "JULY 8, 2026",
     readTime: "4 MIN READ",
     discussion: {
-      comment: "This piece perfectly captures the modern struggle. The metric-driven society has made us lose touch with our intrinsic values.",
-      author: "@creative_thinker",
+      comment: "Interesting insights",
+      author: (
+        <a
+          href="https://x.com/RakeshK32229480/status/2080322721096016377?s=20"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+        >
+          biased indian (@RakeshK32229480) on X ↗
+        </a>
+      ),
       mediumLink: "#",
-      xLink: "#"
+      xLink: "https://x.com/encodedfeat/status/2080230556558938376"
     },
     content: (
       <>
         <p className="first-letter:text-6xl first-letter:font-serif first-letter:text-zinc-900 dark:first-letter:text-white first-letter:float-left first-letter:mr-3 first-letter:mt-[-0.1em] text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
           Let me write today... Let me write about what I think... I think too much, so I can't write everything here, but I'll write some. So today, I am writing about the big things that often come to my mind. These are not about someone's lifestyle, inspiration, recent technologies, or anything like that... These are just about living peacefully with oneself.
         </p>
-        
+
         <h2 className="text-3xl font-serif font-bold text-zinc-900 dark:text-white mt-12 mb-6 border-b border-zinc-200 dark:border-zinc-800 pb-3">Numbers</h2>
-        
+
         <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
-          The first one is numbers... Yes, numbers... The numbers given by some of us to some of us. I don't know why everyone is so obsessed with numbers. Everyone wants a million, a hundred million, or a billion... These numbers could be in the form of followers, likes, views, marks, etc. Why can't we just live peacefully without these numbers? Why do we care so much about these numbers? Everyone is running after numbers... And society says, "Look, he is great because he has a big number." 
+          The first one is numbers... Yes, numbers... The numbers given by some of us to some of us. I don't know why everyone is so obsessed with numbers. Everyone wants a million, a hundred million, or a billion... These numbers could be in the form of followers, likes, views, marks, etc. Why can't we just live peacefully without these numbers? Why do we care so much about these numbers? Everyone is running after numbers... And society says, "Look, he is great because he has a big number."
         </p>
         <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
           There could be many perspectives. For example, some get these numbers through their talent, their skills, and their work. But mine is different... Why numbers? Shouldn't we identify greatness by someone's actual talent? I think I am getting away from my actual topic. So, leaving aside what and how someone should identify greatness... But why numbers? Why?
         </p>
-        
+
         <h2 className="text-3xl font-serif font-bold text-zinc-900 dark:text-white mt-12 mb-6 border-b border-zinc-200 dark:border-zinc-800 pb-3">Money</h2>
 
         <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
@@ -59,7 +68,7 @@ const blogPosts = {
     content: (
       <>
         <p className="first-letter:text-6xl first-letter:font-serif first-letter:text-zinc-900 dark:first-letter:text-white first-letter:float-left first-letter:mr-3 first-letter:mt-[-0.1em] text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
-          We often believe we are making free choices. But how many of those choices were planted there by the algorithm? 
+          We often believe we are making free choices. But how many of those choices were planted there by the algorithm?
         </p>
         <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">This is a placeholder for the second track of the EP. More thoughts coming soon...</p>
       </>
@@ -99,7 +108,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <span>•</span>
           <span>{post.readTime || "5 MIN READ"}</span>
         </div>
-        
+
         {/* Separator line as shown in the screenshot */}
         <div className="w-16 h-0.5 bg-zinc-900 dark:bg-white mb-8 rounded-full" />
       </div>
@@ -115,7 +124,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <MessageSquare size={20} className="text-zinc-400" />
             Join the Discussion
           </h3>
-          
+
           <div className="bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl p-6 sm:p-8 relative overflow-hidden border border-zinc-100 dark:border-zinc-800">
             <Quote size={80} className="absolute -top-4 -left-4 text-zinc-200 dark:text-zinc-800 opacity-40 rotate-180" />
             <div className="relative z-10 flex flex-col gap-4">
@@ -131,9 +140,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </div>
             </div>
           </div>
-          
+
           <div className="flex flex-wrap items-center gap-3">
-            <a 
+            <a
               /* @ts-ignore */
               href={post.discussion.mediumLink}
               target="_blank"
@@ -143,7 +152,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <FaMedium size={16} />
               Join on Medium
             </a>
-            <a 
+            <a
               /* @ts-ignore */
               href={post.discussion.xLink}
               target="_blank"
